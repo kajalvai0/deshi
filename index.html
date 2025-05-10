@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>দেশি.কম.বিডি - দেশি পণ্য, স্বাদে গুণে অনন্য!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background-color: #f8f8f8;
+        }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1601758003122-53c40e686a19');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .login-form, .signup-form {
+            display: none;
+        }
+        
+        .active-form {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .nav-link:hover {
+            color: #f59e0b;
+        }
+        
+        .cart-count {
+            top: -8px;
+            right: -8px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://i.ibb.co/0jX7qJQ/desi-logo.png" alt="Desi Logo" class="h-12 mr-2">
+                <h1 class="text-2xl font-bold text-green-800">দেশি.কম.বিডি</h1>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="nav-link text-gray-700 hover:text-yellow-600 font-medium">হোম</a>
+                <a href="#products" class="nav-link text-gray-700 hover:text-yellow-600 font-medium">পণ্য সমূহ</a>
+                <a href="#about" class="nav-link text-gray-700 hover:text-yellow-600 font-medium">আমাদের সম্পর্কে</a>
+                <a href="#contact" class="nav-link text-gray-700 hover:text-yellow-600 font-medium">যোগাযোগ</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <button id="cartBtn" class="text-gray-700 hover:text-yellow-600">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span id="cartCount" class="cart-count absolute bg-yellow-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </button>
+                </div>
+                <button id="authBtn" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md font-medium">
+                    লগইন / রেজিস্টার
+                </button>
+                <button id="mobileMenuBtn" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
+            <a href="#" class="block py-2 text-gray-700 hover:text-yellow-600">হোম</a>
+            <a href="#products" class="block py-2 text-gray-700 hover:text-yellow-600">পণ্য সমূহ</a>
+            <a href="#about" class="block py-2 text-gray-700 hover:text-yellow-600">আমাদের সম্পর্কে</a>
+            <a href="#contact" class="block py-2 text-gray-700 hover:text-yellow-600">যোগাযোগ</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">দেশি পণ্য, স্বাদে গুণে অনন্য!</h1>
+            <p class="text-xl mb-8">প্রাকৃতিকভাবে পালিত দেশি মুরগি ও এর পণ্য সমূহ</p>
+            <a href="#products" class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-8 rounded-md inline-block transition duration-300">
+                পণ্য দেখুন
+            </a>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section id="products" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">আমাদের পণ্য সমূহ</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="https://i.ibb.co/0jX7qJQ/desi-egg.jpg" alt="দেশি মুরগির ডিম" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">দেশি মুরগির ডিম</h3>
+                        <p class="text-gray-600 mb-3">প্রাকৃতিকভাবে পালিত মুরগির ডিম</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-green-600">৳১৫/টি</span>
+                            <button class="add-to-cart bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded" data-id="1" data-name="দেশি মুরগির ডিম" data-price="15">
+                                কার্টে যোগ করুন
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="https://i.ibb.co/0jX7qJQ/desi-chick.jpg" alt="দেশি মুরগির বাচ্চা" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">দেশি মুরগির বাচ্চা (১ মাস)</h3>
+                        <p class="text-gray-600 mb-3">সুস্থ ও সবল বাচ্চা</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-green-600">৳১৫০/টি</span>
+                            <button class="add-to-cart bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded" data-id="2" data-name="দেশি মুরগির বাচ্চা (১ মাস)" data-price="150">
+                                কার্টে যোগ করুন
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="https://i.ibb.co/0jX7qJQ/desi-chicken.jpg" alt="দেশি মুরগির মাংস" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">দেশি মুরগির মাংস</h3>
+                        <p class="text-gray-600 mb-3">সুস্বাদু ও নিরাপদ মাংস</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-green-600">৳৫৫০/কেজি</span>
+                            <button class="add-to-cart bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded" data-id="3" data-name="দেশি মুরগির মাংস" data-price="550">
+                                কার্টে যোগ করুন
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="https://i.ibb.co/0jX7qJQ/rice.jpg" alt="ধান" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">ধান (মুরগির খাবার)</h3>
+                        <p class="text-gray-600 mb-3">প্রাকৃতিক খাদ্য</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-green-600">৳৪০/কেজি</span>
+                            <button class="add-to-cart bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded" data-id="4" data-name="ধান (মুরগির খাবার)" data-price="40">
+                                কার্টে যোগ করুন
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="https://i.ibb.co/0jX7qJQ/wheat.jpg" alt="গম" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">গম (মুরগির খাবার)</h3>
+                        <p class="text-gray-600 mb-3">পুষ্টিকর খাদ্য</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-green-600">৳৪৫/কেজি</span>
+                            <button class="add-to-cart bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded" data-id="5" data-name="গম (মুরগির খাবার)" data-price="45">
+                                কার্টে যোগ করুন
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="https://i.ibb.co/0jX7qJQ/pui-shak.jpg" alt="পুঁইশাক" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">পুঁইশাক</h3>
+                        <p class="text-gray-600 mb-3">মুরগির জন্য উপকারী শাক</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-green-600">৳৩০/কেজি</span>
+                            <button class="add-to-cart bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded" data-id="6" data-name="পুঁইশাক" data-price="30">
+                                কার্টে যোগ করুন
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 7 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="https://i.ibb.co/0jX7qJQ/lal-shak.jpg" alt="লাল শাক" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">লাল শাক</h3>
+                        <p class="text-gray-600 mb-3">পুষ্টিকর শাক</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-green-600">৳৩৫/কেজি</span>
+                            <button class="add-to-cart bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded" data-id="7" data-name="লাল শাক" data-price="35">
+                                কার্টে যোগ করুন
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 8 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="https://i.ibb.co/0jX7qJQ/kolmi-shak.jpg" alt="কলমি শাক" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">কলমি শাক</h3>
+                        <p class="text-gray-600 mb-3">মুরগির জন্য উপকারী</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-green-600">৳২৫/কেজি</span>
+                            <button class="add-to-cart bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded" data-id="8" data-name="কলমি শাক" data-price="25">
+                                কার্টে যোগ করুন
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">আমাদের সম্পর্কে</h2>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <img src="https://i.ibb.co/0jX7qJQ/farm.jpg" alt="আমাদের খামার" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">দেশি পদ্ধতিতে মুরগি পালন</h3>
+                    <p class="text-gray-600 mb-4">
+                        আমরা প্রাকৃতিক উপায়ে দেশি মুরগি পালন করি। আমাদের মুরগিগুলো খোলা পরিবেশে বেড়ে ওঠে, 
+                        যেখানে তারা স্বাধীনভাবে চলাফেরা করতে পারে এবং প্রাকৃতিক খাবার খেতে পারে।
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        আমরা কোন রাসায়নিক বা হরমোন ব্যবহার করি না। আমাদের মুরগির খাবার সম্পূর্ণ প্রাকৃতিক যেমন 
+                        ধান, গম, চাল, বিভিন্ন ধরনের শাক-সবজি যা তাদের স্বাস্থ্যকর ও সুস্বাদু করে তোলে।
+                    </p>
+                    <p class="text-gray-600">
+                        আমাদের লক্ষ্য হল গ্রাহকদের কাছে স্বাস্থ্যকর ও নিরাপদ দেশি মুরগি ও এর পণ্য পৌঁছে দেওয়া।
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6 bg-gray-50 rounded-lg">
+                    <div class="text-4xl text-yellow-500 mb-4">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">১০০% প্রাকৃতিক</h3>
+                    <p class="text-gray-600">কোন রাসায়নিক বা হরমোন ব্যবহার করা হয় না</p>
+                </div>
+                
+                <div class="text-center p-6 bg-gray-50 rounded-lg">
+                    <div class="text-4xl text-yellow-500 mb-4">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">দ্রুত ডেলিভারি</h3>
+                    <p class="text-gray-600">অর্ডার করার ২৪ ঘন্টার মধ্যে হোম ডেলিভারি</p>
+                </div>
+                
+                <div class="text-center p-6 bg-gray-50 rounded-lg">
+                    <div class="text-4xl text-yellow-500 mb-4">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">গুণগত মান</h3>
+                    <p class="text-gray-600">সর্বোচ্চ মান নিশ্চিত করা হয়</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">যোগাযোগ করুন</h2>
+            
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">আমাদের ঠিকানা</h3>
+                    <p class="text-gray-600 mb-4">
+                        <i class="fas fa-map-marker-alt text-yellow-500 mr-2"></i>
+                        গ্রাম: জিধিরপুর, উপজেলা: বদলগাছী, জেলা: নওগাঁ ।
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        <i class="fas fa-phone text-yellow-500 mr-2"></i>
+                        +৮৮০ ১৭১৭-২২৯৬১৭
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        <i class="fas fa-envelope text-yellow-500 mr-2"></i>
+                        info@desi.com.bd
+                    </p>
+                    
+                    <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">আমাদের সময়সূচী</h3>
+                    <p class="text-gray-600 mb-2">সোমবার - শনিবার: সকাল ৯টা - সন্ধ্যা ৬টা</p>
+                    <p class="text-gray-600">রবিবার: বন্ধ</p>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <form class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 mb-2">আপনার নাম</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 mb-2">ইমেইল</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="phone" class="block text-gray-700 mb-2">ফোন নম্বর</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-700 mb-2">বার্তা</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea>
+                        </div>
+                        <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded-md transition duration-300">
+                            পাঠান
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Authentication Modal -->
+    <div id="authModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-md">
+            <div class="flex justify-between items-center border-b px-6 py-4">
+                <h3 class="text-xl font-semibold text-gray-800">অ্যাকাউন্ট</h3>
+                <button id="closeAuthModal" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="p-6">
+                <div class="flex border-b mb-6">
+                    <button id="loginTab" class="tab-btn py-2 px-4 font-medium text-yellow-600 border-b-2 border-yellow-500">লগইন</button>
+                    <button id="signupTab" class="tab-btn py-2 px-4 font-medium text-gray-500">রেজিস্টার</button>
+                </div>
+                
+                <!-- Login Form -->
+                <form id="loginForm" class="login-form">
+                    <div class="mb-4">
+                        <label for="loginEmail" class="block text-gray-700 mb-2">ইমেইল</label>
+                        <input type="email" id="loginEmail" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="loginPassword" class="block text-gray-700 mb-2">পাসওয়ার্ড</label>
+                        <input type="password" id="loginPassword" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500" required>
+                    </div>
+                    <button type="submit" class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-md transition duration-300">
+                        লগইন
+                    </button>
+                    <p class="text-center mt-4 text-gray-600">
+                        পাসওয়ার্ড ভুলে গেছেন? <a href="#" class="text-yellow-500 hover:underline">রিসেট করুন</a>
+                    </p>
+                </form>
+                
+                <!-- Signup Form -->
+                <form id="signupForm" class="signup-form">
+                    <div class="mb-4">
+                        <label for="signupName" class="block text-gray-700 mb-2">পুরো নাম</label>
+                        <input type="text" id="signupName" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="signupEmail" class="block text-gray-700 mb-2">ইমেইল</label>
+                        <input type="email" id="signupEmail" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="signupPhone" class="block text-gray-700 mb-2">ফোন নম্বর</label>
+                        <input type="tel" id="signupPhone" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="signupPassword" class="block text-gray-700 mb-2">পাসওয়ার্ড</label>
+                        <input type="password" id="signupPassword" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="signupConfirmPassword" class="block text-gray-700 mb-2">পাসওয়ার্ড নিশ্চিত করুন</label>
+                        <input type="password" id="signupConfirmPassword" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500" required>
+                    </div>
+                    <button type="submit" class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-md transition duration-300">
+                        রেজিস্টার
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-md max-h-[80vh] overflow-y-auto">
+            <div class="flex justify-between items-center border-b px-6 py-4">
+                <h3 class="text-xl font-semibold text-gray-800">আপনার কার্ট</h3>
+                <button id="closeCartModal" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div id="cartItems" class="p-4">
+                <!-- Cart items will be added here dynamically -->
+                <p class="text-center text-gray-500 py-8">আপনার কার্টে কোন পণ্য নেই</p>
+            </div>
+            
+            <div class="border-t px-6 py-4">
+                <div class="flex justify-between mb-4">
+                    <span class="font-semibold">মোট:</span>
+                    <span id="cartTotal" class="font-bold">৳০</span>
+                </div>
+                <button id="checkoutBtn" class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-md transition duration-300">
+                    চেকআউট
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-green-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">দেশি.কম.বিডি</h3>
+                    <p class="mb-4">দেশি পণ্য, স্বাদে গুণে অনন্য!</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-yellow-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-yellow-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-yellow-300">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">লিংক</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-yellow-300">হোম</a></li>
+                        <li><a href="#products" class="hover:text-yellow-300">পণ্য সমূহ</a></li>
+                        <li><a href="#about" class="hover:text-yellow-300">আমাদের সম্পর্কে</a></li>
+                        <li><a href="#contact" class="hover:text-yellow-300">যোগাযোগ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">সেবা</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-yellow-300">হোম ডেলিভারি</a></li>
+                        <li><a href="#" class="hover:text-yellow-300">প্রোডাক্ট গাইড</a></li>
+                        <li><a href="#" class="hover:text-yellow-300">প্রাইভেসি পলিসি</a></li>
+                        <li><a href="#" class="hover:text-yellow-300">রিটার্ন পলিসি</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">নিউজলেটার</h3>
+                    <p class="mb-4">আমাদের সর্বশেষ অফার ও তথ্য পেতে সাবস্ক্রাইব করুন</p>
+                    <div class="flex">
+                        <input type="email" placeholder="আপনার ইমেইল" class="px-4 py-2 w-full rounded-l-md text-gray-800 focus:outline-none">
+                        <button class="bg-yellow-500 hover:bg-yellow-600 px-4 rounded-r-md">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-green-700 mt-8 pt-6 text-center">
+                <p>&copy; ২০২৫ দেশি.কম.বিডি - সকল অধিকার আর.এস.টি.এস-বিডি কর্তৃক সংরক্ষিত</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Authentication Modal
+        const authBtn = document.getElementById('authBtn');
+        const authModal = document.getElementById('authModal');
+        const closeAuthModal = document.getElementById('closeAuthModal');
+        const loginTab = document.getElementById('loginTab');
+        const signupTab = document.getElementById('signupTab');
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+        
+        authBtn.addEventListener('click', () => {
+            authModal.classList.remove('hidden');
+            loginForm.classList.add('active-form');
+            signupForm.classList.remove('active-form');
+            loginTab.classList.add('text-yellow-600', 'border-b-2', 'border-yellow-500');
+            loginTab.classList.remove('text-gray-500');
+            signupTab.classList.add('text-gray-500');
+            signupTab.classList.remove('text-yellow-600', 'border-b-2', 'border-yellow-500');
+        });
+        
+        closeAuthModal.addEventListener('click', () => {
+            authModal.classList.add('hidden');
+        });
+        
+        loginTab.addEventListener('click', () => {
+            loginForm.classList.add('active-form');
+            signupForm.classList.remove('active-form');
+            loginTab.classList.add('text-yellow-600', 'border-b-2', 'border-yellow-500');
+            loginTab.classList.remove('text-gray-500');
+            signupTab.classList.add('text-gray-500');
+            signupTab.classList.remove('text-yellow-600', 'border-b-2', 'border-yellow-500');
+        });
+        
+        signupTab.addEventListener('click', () => {
+            signupForm.classList.add('active-form');
+            loginForm.classList.remove('active-form');
+            signupTab.classList.add('text-yellow-600', 'border-b-2', 'border-yellow-500');
+            signupTab.classList.remove('text-gray-500');
+            loginTab.classList.add('text-gray-500');
+            loginTab.classList.remove('text-yellow-600', 'border-b-2', 'border-yellow-500');
+        });
+        
+        // Form Submission
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('লগইন সফল হয়েছে!');
+            authModal.classList.add('hidden');
+        });
+        
+        signupForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('রেজিস্ট্রেশন সফল হয়েছে!');
+            authModal.classList.add('hidden');
+        });
+        
+        // Cart Functionality
+        const cartBtn = document.getElementById('cartBtn');
+        const cartModal = document.getElementById('cartModal');
+        const closeCartModal = document.getElementById('closeCartModal');
+        const cartItems = document.getElementById('cartItems');
+        const cartCount = document.getElementById('cartCount');
+        const cartTotal = document.getElementById('cartTotal');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        
+        let cart = [];
+        
+        cartBtn.addEventListener('click', () => {
+            updateCartModal();
+            cartModal.classList.remove('hidden');
+        });
+        
+        closeCartModal.addEventListener('click', () => {
+            cartModal.classList.add('hidden');
+        });
+        
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const id = button.getAttribute('data-id');
+                const name = button.getAttribute('data-name');
+                const price = parseFloat(button.getAttribute('data-price'));
+                
+                const existingItem = cart.find(item => item.id === id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id,
+                        name,
+                        price,
+                        quantity: 1
+                    });
+                }
+                
+                updateCartCount();
+                showAddedToCartToast(name);
+            });
+        });
+        
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length > 0) {
+                alert('অর্ডার সফল হয়েছে! ধন্যবাদ।');
+                cart = [];
+                updateCartCount();
+                updateCartModal();
+                cartModal.classList.add('hidden');
+            } else {
+                alert('আপনার কার্টে কোন পণ্য নেই।');
+            }
+        });
+        
+        function updateCartCount() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
+        }
+        
+        function updateCartModal() {
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="text-center text-gray-500 py-8">আপনার কার্টে কোন পণ্য নেই</p>';
+                cartTotal.textContent = '৳০';
+                return;
+            }
+            
+            let itemsHTML = '';
+            let total = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                itemsHTML += `
+                    <div class="flex justify-between items-center py-3 border-b">
+                        <div>
+                            <h4 class="font-medium">${item.name}</h4>
+                            <p class="text-sm text-gray-500">৳${item.price} x ${item.quantity}</p>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="font-medium mr-4">৳${itemTotal}</span>
+                            <button class="remove-item text-red-500 hover:text-red-700" data-id="${item.id}">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            cartItems.innerHTML = itemsHTML;
+            cartTotal.textContent = `৳${total}`;
+            
+            // Add event listeners to remove buttons
+            document.querySelectorAll('.remove-item').forEach(button => {
+                button.addEventListener('click', () => {
+                    const id = button.getAttribute('data-id');
+                    cart = cart.filter(item => item.id !== id);
+                    updateCartCount();
+                    updateCartModal();
+                });
+            });
+        }
+        
+        function showAddedToCartToast(productName) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded-md shadow-lg flex items-center';
+            toast.innerHTML = `
+                <i class="fas fa-check-circle mr-2"></i>
+                ${productName} কার্টে যোগ করা হয়েছে
+            `;
+            
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'transition', 'duration-500');
+                setTimeout(() => {
+                    toast.remove();
+                }, 500);
+            }, 3000);
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=kajalvai0/desidotcom" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</html>
